@@ -1,15 +1,27 @@
-buildscript {
-    repositories {
-        jcenter()
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 30
+        versionName '3.0.3-SNAPSHOT'
+
+        consumerProguardFiles 'proguard.cfg'
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
-        classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.3'
+
+    lintOptions {
+        textReport true
+        textOutput 'stdout'
     }
+
+    resourcePrefix 'bt_'
 }
 
-allprojects {
-    repositories {
-        jcenter()
-    }
+dependencies {
+    compile 'com.android.support:design:25.1.0'
+    compile 'io.card:android-sdk:[5.5.0,6.0.0)'
 }
